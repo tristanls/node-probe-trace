@@ -105,9 +105,9 @@ Benchmark results:
   * [probe.instrument(name, func)](#probeinstrumentname-func)
   * [probe.removeProbe(name)](#proberemoveprobename)
   * [probe.uninstrument(func)](#probeuninstrumentfunc)
-  * [Event '~probe:<name>:enter'](#event-probenameenter)
-  * [Event '~probe:<name>:error'](#event-probenameerror)
-  * [Event '~probe:<name>:return'](#event-probenamereturn)
+  * [Event '~probe:\<name\>:enter'](#event-probenameenter)
+  * [Event '~probe:\<name\>:error'](#event-probenameerror)
+  * [Event '~probe:\<name\>:return'](#event-probenamereturn)
 
 #### new Probe()
 
