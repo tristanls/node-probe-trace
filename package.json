@@ -1,0 +1,25 @@
+{
+  "name": "probe-trace",
+  "version": "0.1.0",
+  "description": "Instrument code with probes.",
+  "scripts": {
+    "benchmark": "node benchmark/benchmark.js",
+    "test": "node scripts/test.js"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "nodeunit": "0.8.1",
+    "pad": "0.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tristanls/node-probe-trace.git"
+  },
+  "keywords": [
+    "instrument",
+    "probe",
+    "trace"
+  ],
+  "author": "Tristan Slominski <tristan.slominski@gmail.com>",
+  "license": "MIT"
+}
