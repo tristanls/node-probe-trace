@@ -2,7 +2,7 @@
 
 _Stability: 1 - [Experimental](https://github.com/tristanls/stability-index#stability-1---experimental)_
 
-![latest published module version](https://badge.fury.io/js/probe-trace.png)
+[![NPM version](https://badge.fury.io/js/probe-trace.png)](http://npmjs.org/package/probe-trace)
 
 Instrument code with probes.
 
