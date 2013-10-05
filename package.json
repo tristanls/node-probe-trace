@@ -1,6 +1,6 @@
 {
   "name": "probe-trace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Instrument code with probes.",
   "scripts": {
     "benchmark": "node benchmark/benchmark.js",
