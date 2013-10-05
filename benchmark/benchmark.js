@@ -43,29 +43,45 @@ var iterations = 1e6;
 console.log("Starting benchmark...");
 console.log("Running uninstrumented...");
 
+var accumulator = 0;
+var diff = 0;
+var sign = 1;
 var uninstrumentedTime = process.hrtime();
 for (var i = 0; i < iterations; i++) {
-    testFunction(1, 2);
+    if (i % 2) sign = -1 * sign;
+    diff = new Date().getTime();
+    accumulator = testFunction(1, sign * diff);
 }
 uninstrumentedTime = process.hrtime(uninstrumentedTime);
+console.log(accumulator); // prevent being unused
 
 var probe = new Probe();
 var instrumentedTestFunction = probe.instrument('foo', testFunction);
 
 console.log("Running instrumented but off...");
+accumulator = 0;
+sign = 1;
 var instrumentedTime = process.hrtime();
 for (var i = 0; i < iterations; i++) {
-    instrumentedTestFunction(1, 2);
+    if (i % 2) sign = -1 * sign;
+    diff = new Date().getTime();
+    accumulator = instrumentedTestFunction(1, sign * diff);
 }
 instrumentedTime = process.hrtime(instrumentedTime);
+console.log(accumulator); // prevent being unused
 
 console.log("Running instrumented and on...");
 probe.addProbe('foo');
+accumulator = 0;
+sign = 1;
 var instrumentedAndOnTime = process.hrtime();
 for (var i = 0; i < iterations; i++) {
-    instrumentedTestFunction(1, 2);
+    if (i % 2) sign = -1 * sign;
+    diff = new Date().getTime();
+    accumulator = instrumentedTestFunction(1, sign * diff);
 }
 instrumentedAndOnTime = process.hrtime(instrumentedAndOnTime);
+console.log(accumulator); // prevent being unused
 
 console.log("Running instrumented, on, and with listeners registered...");
 probe.on('~probe:foo:enter', function (event) {
@@ -77,11 +93,16 @@ probe.on('~probe:foo:error', function (event) {
 probe.on('~probe:foo:return', function (event) {
     return 1 + 2;
 });
+accumulator = 0;
+sign = 1;
 var instrumentedAndOnAndListenersTime = process.hrtime();
 for (var i = 0; i < iterations; i++) {
-    instrumentedTestFunction(1, 2);
+    if (i % 2) sign = -1 * sign;
+    diff = new Date().getTime();
+    accumulator = instrumentedTestFunction(1, sign * diff);
 }
 instrumentedAndOnAndListenersTime = process.hrtime(instrumentedAndOnAndListenersTime);
+console.log(accumulator); // prevent being unused
 
 console.log("Benchmark results:");
 var reportResult = function (headline, hrtime) {

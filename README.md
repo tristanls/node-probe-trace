@@ -87,14 +87,18 @@ The current performance benchmark gives intuition as to the cost of `probe-trace
 ```
 Starting benchmark...
 Running uninstrumented...
+1380985478151
 Running instrumented but off...
+1380985478468
 Running instrumented and on...
+1380985483500
 Running instrumented, on, and with listeners registered...
+1380985488939
 Benchmark results:
-  uninstrumented time                    :     7655464ns  130625655 calls/sec
-  instrumented but off time              :   154998699ns    6451667 calls/sec
-  instrumented and on time               :  4746867607ns     210665 calls/sec
-  instrumented and on with listeners time:  5128034667ns     195006 calls/sec
+  uninstrumented time                    :   160054566ns    6247869 calls/sec
+  instrumented but off time              :   316946044ns    3155111 calls/sec
+  instrumented and on time               :  5031668901ns     198741 calls/sec
+  instrumented and on with listeners time:  5440269157ns     183814 calls/sec
 ```
 
 ## Documentation
